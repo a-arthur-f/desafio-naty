@@ -11,19 +11,25 @@ export default function CategoryCard({
   icon,
 }: CategoryCardProps) {
   const theme = useTheme();
+  const cardStyle = [
+    {
+      "&:hover, &:active": {
+        color: "primary.main",
+        backgroundColor: "secondary.main",
+        transition: "all .5s",
+      },
+    },
+  ];
+  const iconStyle = [
+    {
+      "& svg": {
+        fontSize: { xs: theme.spacing(10), md: theme.spacing(20) },
+      },
+    },
+  ];
 
   return (
-    <Card
-      sx={[
-        {
-          "&:hover, &:active": {
-            color: "primary.main",
-            backgroundColor: "secondary.main",
-            transition: "all .5s",
-          },
-        },
-      ]}
-    >
+    <Card sx={cardStyle}>
       <CardContent>
         <Grid container spacing={1}>
           <Grid
@@ -31,13 +37,7 @@ export default function CategoryCard({
             xs={12}
             justifyContent="center"
             display="flex"
-            sx={[
-              {
-                "& svg": {
-                  fontSize: { xs: theme.spacing(10), md: theme.spacing(20) },
-                },
-              },
-            ]}
+            sx={iconStyle}
           >
             {icon}
           </Grid>
