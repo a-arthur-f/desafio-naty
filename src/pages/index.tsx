@@ -1,8 +1,10 @@
+import { CssBaseline } from "@mui/material";
 import Head from "next/head";
 
 export default function Home() {
   return (
     <>
+      <CssBaseline />
       <Head>
         <title>Desafio Naty</title>
         <meta
