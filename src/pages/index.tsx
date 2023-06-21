@@ -1,13 +1,12 @@
 import CategoryCard from "@/components/CategoryCard";
 import Icon from "@/components/Icon";
-import { Box, CssBaseline, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import Head from "next/head";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      <CssBaseline />
       <Head>
         <title>Desafio Naty</title>
         <meta
