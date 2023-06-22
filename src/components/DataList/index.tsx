@@ -10,18 +10,18 @@ import {
 import Link from "next/link";
 
 interface DataListProps {
-  items: Data[];
+  items: DataItem[];
   icon: React.ReactNode;
   link: string;
 }
 
 interface DataItemProps {
-  data: Data;
+  data: DataItem;
   link: string;
   icon: React.ReactNode;
 }
 
-type Data = {
+export type DataItem = {
   id: number;
   info1: { name: string; value: string };
   info2: { name: string; value: string };
