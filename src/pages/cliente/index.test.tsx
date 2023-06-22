@@ -1,4 +1,4 @@
-import { screen, render } from "@testing-library/react";
+import { screen, render, getByText } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Client from ".";
 import { ClientData } from "../../../types";
@@ -49,5 +49,13 @@ describe("teste da pagina de clientes", () => {
     expect(
       screen.getAllByText("Nº do documento:")[1].closest("p")
     ).toHaveTextContent("456");
+  });
+
+  test("link de adicionar", () => {
+    render(<Client data={data} />);
+    expect(screen.getByText("NOVO CLIENTE").closest("a")).toHaveAttribute(
+      "href",
+      "/cliente/novo"
+    );
   });
 });
