@@ -6,6 +6,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import { ClientData } from "../../../types";
+import Link from "next/link";
 
 export default function Client({
   data,
@@ -32,9 +33,11 @@ export default function Client({
           title="Clientes"
           icon={<Icon name="client" />}
           action={[
-            <Button variant="outlined" color="secondary" size="large">
-              Adicionar
-            </Button>,
+            <Link href="/cliente/novo">
+              <Button variant="outlined" color="secondary" size="large">
+                NOVO CLIENTE
+              </Button>
+            </Link>,
           ]}
         />
 
