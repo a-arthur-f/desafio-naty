@@ -2,7 +2,7 @@ import CategoryHeader from "@/components/CategoryHeader";
 import DataList, { DataItem } from "@/components/DataList";
 import Icon from "@/components/Icon";
 import config from "@/config";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, SxProps } from "@mui/material";
 import { InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import { ClientData } from "../../../types";
@@ -18,17 +18,18 @@ export default function Client({
       info2: { name: "Nome", value: item.nome },
     }));
   }
+  const mainStyle: SxProps = {
+    display: "flex",
+    flexDirection: "column",
+    gap: { xs: 1, md: 4 },
+  };
+
   return (
     <>
       <Head>
         <title>Clientes</title>
       </Head>
-      <Box
-        component="main"
-        display="flex"
-        flexDirection="column"
-        gap={{ xs: 1, md: 4 }}
-      >
+      <Box sx={mainStyle}>
         <CategoryHeader
           title="Clientes"
           icon={<Icon name="client" />}
