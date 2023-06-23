@@ -21,7 +21,6 @@ export default function Client({
   const mainStyle: SxProps = {
     display: "flex",
     flexDirection: "column",
-    gap: { xs: 1, md: 4 },
   };
 
   return (

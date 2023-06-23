@@ -20,6 +20,7 @@ export default function CategoryHeader({
       justifyContent="space-between"
       alignItems={{ md: "center" }}
       flexDirection={{ xs: "column", md: "row" }}
+      mb={{ xs: 1, md: 4 }}
     >
       <Box
         display="flex"
