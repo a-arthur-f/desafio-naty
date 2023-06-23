@@ -42,8 +42,8 @@ export default function Driver({
         />
 
         <DataList
-          link="cliente"
-          icon={<Icon name="client" />}
+          link="condutor"
+          icon={<Icon name="driver" />}
           items={getListItems()}
         />
       </Box>
