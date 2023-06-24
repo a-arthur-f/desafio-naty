@@ -1,13 +1,7 @@
 import { SxProps, useTheme } from "@mui/material";
-import {
-  Box,
-  Card,
-  CardContent,
-  List,
-  ListItem,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent, List, ListItem } from "@mui/material";
 import Link from "next/link";
+import Info from "../Info";
 
 interface DataListProps {
   items: DataItem[];
@@ -65,10 +59,6 @@ function DataItem({ data, link, icon }: DataItemProps) {
       },
     },
   ];
-  const typographyStyle: SxProps = {
-    fontSize: { xs: theme.spacing(2), md: theme.spacing(3) },
-    m: 0,
-  };
 
   return (
     <ListItem alignItems="flex-start" disablePadding>
@@ -79,24 +69,8 @@ function DataItem({ data, link, icon }: DataItemProps) {
               {icon}
             </Box>
             <Box display="flex" flexDirection="column">
-              <Typography paragraph sx={typographyStyle}>
-                <Typography
-                  component="span"
-                  sx={{ ...typographyStyle, fontWeight: "bold" }}
-                >
-                  {data.info1.name}:
-                </Typography>{" "}
-                {data.info1.value}
-              </Typography>
-              <Typography paragraph m={0} sx={typographyStyle}>
-                <Typography
-                  component="span"
-                  sx={{ ...typographyStyle, fontWeight: "bold" }}
-                >
-                  {data.info2.name}:
-                </Typography>{" "}
-                {data.info2.value}
-              </Typography>
+              <Info name={data.info1.name} value={data.info1.value} />
+              <Info name={data.info2.name} value={data.info2.value} />
             </Box>
           </CardContent>
         </Card>
