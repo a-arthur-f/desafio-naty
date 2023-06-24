@@ -1,6 +1,6 @@
 import { screen, render, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Header from ".";
+import Header from "../../src/components/Header";
 
 describe("Testes do header", () => {
   test("logo", () => {

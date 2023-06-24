@@ -1,6 +1,6 @@
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Home from ".";
+import Home from "../../src/pages";
 
 describe("teste da home", () => {
   test("cards de categoria", () => {

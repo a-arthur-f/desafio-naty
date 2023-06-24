@@ -1,7 +1,7 @@
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import CategoryHeader from ".";
-import Icon from "../Icon";
+import CategoryHeader from "../../src/components/CategoryHeader";
+import Icon from "../../src/components/Icon";
 import { Button } from "@mui/material";
 
 describe("teste do CategoryHeader", () => {

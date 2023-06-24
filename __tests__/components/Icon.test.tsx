@@ -1,5 +1,5 @@
 import { screen, render } from "@testing-library/react";
-import Icon from ".";
+import Icon from "../../src/components/Icon";
 
 describe("teste do Icon", () => {
   test("icone de cliente", () => {

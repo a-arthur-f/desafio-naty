@@ -1,7 +1,7 @@
 import { screen, render, getByText } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Client from ".";
-import { ClientData } from "../../../types";
+import Client from "../../src/pages/cliente";
+import { ClientData } from "../../types";
 
 const data: ClientData[] = [
   {

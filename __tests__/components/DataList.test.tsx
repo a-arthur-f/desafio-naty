@@ -1,7 +1,7 @@
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import DataList from ".";
-import Icon from "../Icon";
+import DataList from "../../src/components/DataList";
+import Icon from "../../src/components/Icon";
 
 const data = [
   {

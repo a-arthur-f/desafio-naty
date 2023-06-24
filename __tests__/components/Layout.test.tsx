@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Layout from ".";
+import Layout from "../../src/components/Layout";
 
 describe("teste do layout", () => {
   test("header", () => {

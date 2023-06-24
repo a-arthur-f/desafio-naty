@@ -1,7 +1,7 @@
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Driver from ".";
-import { DriverData } from "../../../types";
+import Driver from "../../src/pages/condutor";
+import { DriverData } from "../../types";
 
 const data: DriverData[] = [
   {

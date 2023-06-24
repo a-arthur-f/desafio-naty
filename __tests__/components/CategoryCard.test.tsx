@@ -1,5 +1,5 @@
 import { screen, render } from "@testing-library/react";
-import CategoryCard from ".";
+import CategoryCard from "../../src/components/CategoryCard";
 import PersonIcon from "@mui/icons-material/Person";
 
 describe("teste do CategoryCard", () => {
