@@ -12,10 +12,11 @@ export default function Details({ data }: DetailsProps) {
   return (
     <Paper
       variant="outlined"
+      elevation={0}
       sx={{ px: theme.spacing(3), py: theme.spacing(2) }}
     >
-      {data.map((info) => (
-        <Info name={info.name} value={info.value} />
+      {data.map((info, index) => (
+        <Info key={index} name={info.name} value={info.value} />
       ))}
     </Paper>
   );
