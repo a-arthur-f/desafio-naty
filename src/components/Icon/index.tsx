@@ -1,7 +1,7 @@
-import { Person as ClientIcon } from "@mui/icons-material";
-import { DriveEta as VehicleIcon } from "@mui/icons-material";
-import { AirlineSeatReclineExtra as DriverIcon } from "@mui/icons-material";
-import { TrendingUp as DisplacementIcon } from "@mui/icons-material";
+import ClientIcon from "@mui/icons-material/Person";
+import VehicleIcon from "@mui/icons-material/DriveEta";
+import DriverIcon from "@mui/icons-material/AirlineSeatReclineExtra";
+import DisplacementIcon from "@mui/icons-material/TrendingUp";
 import { SxProps } from "@mui/material";
 
 type IconName = "client" | "driver" | "vehicle" | "displacement";
