@@ -18,6 +18,7 @@ export default function Header() {
       position="sticky"
       sx={{ backgroundColor: "primary.light" }}
       variant="outlined"
+      elevation={0}
     >
       <Grid container sx={gridContainerStyle} spacing={6} direction="row">
         <Grid item>
