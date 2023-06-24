@@ -33,7 +33,7 @@ export default function Vehicle({
           title="Deslocamentos"
           icon={<Icon name="displacement" />}
           action={[
-            <Link href="/deslocamento/novo">
+            <Link key="new-displacement-link" href="/deslocamento/novo">
               <Button variant="outlined" color="secondary" size="large">
                 NOVO DESLOCAMENTO
               </Button>

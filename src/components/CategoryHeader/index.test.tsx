@@ -24,8 +24,12 @@ describe("teste do CategoryHeader", () => {
         title=""
         icon={<></>}
         action={[
-          <Button variant="outlined">Editar</Button>,
-          <Button variant="outlined">Deletar</Button>,
+          <Button key="edit" variant="outlined">
+            Editar
+          </Button>,
+          <Button key="delete" variant="outlined">
+            Deletar
+          </Button>,
         ]}
       />
     );

@@ -33,7 +33,7 @@ export default function Vehicle({
           title="Veículos"
           icon={<Icon name="vehicle" />}
           action={[
-            <Link href="/veiculo/novo">
+            <Link key="new-vehicle-link" href="/veiculo/novo">
               <Button variant="outlined" color="secondary" size="large">
                 NOVO VEÍCULO
               </Button>

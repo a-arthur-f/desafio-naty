@@ -33,7 +33,7 @@ export default function Driver({
           title="Condutores"
           icon={<Icon name="driver" />}
           action={[
-            <Link href="/condutor/novo">
+            <Link key="new-driver-link" href="/condutor/novo">
               <Button variant="outlined" color="secondary" size="large">
                 NOVO CONDUTOR
               </Button>

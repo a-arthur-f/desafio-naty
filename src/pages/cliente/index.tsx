@@ -33,7 +33,7 @@ export default function Client({
           title="Clientes"
           icon={<Icon name="client" />}
           action={[
-            <Link href="/cliente/novo">
+            <Link key="new-client-link" href="/cliente/novo">
               <Button variant="outlined" color="secondary" size="large">
                 NOVO CLIENTE
               </Button>
