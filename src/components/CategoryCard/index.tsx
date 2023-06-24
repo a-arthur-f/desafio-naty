@@ -29,7 +29,7 @@ export default function CategoryCard({
   ];
 
   return (
-    <Card sx={cardStyle}>
+    <Card sx={cardStyle} variant="outlined">
       <CardContent>
         <Grid container spacing={1}>
           <Grid

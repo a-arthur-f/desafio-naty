@@ -14,7 +14,11 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "primary.light" }}>
+    <AppBar
+      position="sticky"
+      sx={{ backgroundColor: "primary.light" }}
+      variant="outlined"
+    >
       <Grid container sx={gridContainerStyle} spacing={6} direction="row">
         <Grid item>
           <Box width={{ xs: theme.spacing(7), md: theme.spacing(10) }}>

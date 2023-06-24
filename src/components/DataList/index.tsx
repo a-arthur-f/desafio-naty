@@ -63,7 +63,7 @@ function DataItem({ data, link, icon }: DataItemProps) {
   return (
     <ListItem alignItems="flex-start" disablePadding>
       <Link href={`/${link}/${data.id}`} style={{ width: "100%" }}>
-        <Card sx={cardStyle}>
+        <Card sx={cardStyle} variant="outlined">
           <CardContent sx={{ display: "flex", gap: 4 }}>
             <Box component="span" sx={cardIconstyle}>
               {icon}
