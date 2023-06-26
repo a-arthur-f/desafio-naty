@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import RemoveDialog from "@/components/RemoveDialog";
 
-export default function ClientDetails({
+export default function DriverDetails({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
