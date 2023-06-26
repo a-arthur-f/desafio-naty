@@ -13,7 +13,13 @@ export default function Details({ data }: DetailsProps) {
     <Paper
       variant="outlined"
       elevation={0}
-      sx={{ px: theme.spacing(3), py: theme.spacing(2) }}
+      sx={{
+        px: theme.spacing(3),
+        py: theme.spacing(2),
+        display: "flex",
+        flexDirection: "column",
+        gap: 1,
+      }}
     >
       {data.map((info, index) => (
         <Info key={index} name={info.name} value={info.value} />
