@@ -93,7 +93,7 @@ export async function getServerSideProps({
     } catch (e) {
       return {
         redirect: {
-          destination: "/cliente",
+          destination: "/condutor",
           permanent: false,
         },
       };
