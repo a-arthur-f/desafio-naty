@@ -17,13 +17,13 @@ export default function ClientDetails({
       <CategoryHeader
         title="Detalhes do cliente"
         action={[
-          <Link href={`/cliente/${router.query.id}/editar`}>
+          <Link key={"editar"} href={`/cliente/${router.query.id}/editar`}>
             <Button variant="outlined" color="secondary" size="large">
               Editar
             </Button>
           </Link>,
 
-          <Button variant="outlined" color="error" size="large">
+          <Button key={"remover"} variant="outlined" color="error" size="large">
             Remover
           </Button>,
         ]}
