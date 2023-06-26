@@ -7,13 +7,37 @@ import CategoryHeader from "@/components/CategoryHeader";
 import Icon from "@/components/Icon";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import RemoveDialog from "@/components/RemoveDialog";
 
 export default function ClientDetails({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
+  const [openRemoveDialog, setOpenRemoveDialog] = useState(false);
+  const handleRemoveDialogClose = () => {
+    setOpenRemoveDialog(false);
+  };
+  const handleRemoveDialogAction = async () => {
+    try {
+      await fetch(`${config.api}/Cliente/${router.query.id}`, {
+        method: "DELETE",
+        body: JSON.stringify({ id: Number(router.query.id) }),
+        headers: [["Content-Type", "application/json"]],
+      });
+      router.push("/cliente");
+    } catch (e) {
+      console.log(e);
+      router.push("/cliente");
+    }
+  };
   return (
     <Box component="main">
+      <RemoveDialog
+        open={openRemoveDialog}
+        action={handleRemoveDialogAction}
+        onClose={handleRemoveDialogClose}
+      />
       <CategoryHeader
         title="Detalhes do cliente"
         action={[
@@ -23,7 +47,13 @@ export default function ClientDetails({
             </Button>
           </Link>,
 
-          <Button key={"remover"} variant="outlined" color="error" size="large">
+          <Button
+            key={"remover"}
+            variant="outlined"
+            color="error"
+            size="large"
+            onClick={() => setOpenRemoveDialog(true)}
+          >
             Remover
           </Button>,
         ]}
