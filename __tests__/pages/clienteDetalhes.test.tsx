@@ -1,4 +1,9 @@
-import { screen, render } from "@testing-library/react";
+import {
+  screen,
+  render,
+  fireEvent,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ClientDetails from "@/pages/cliente/[id]";
 
@@ -60,5 +65,25 @@ describe("teste da página de detalhes do cliente", () => {
       "Rio de Janeiro"
     );
     expect(screen.getByText(/UF/).parentElement).toHaveTextContent("RJ");
+  });
+
+  test("RemoveDialog cancelado", async () => {
+    render(<ClientDetails data={[]} />);
+
+    const removeButton = screen.getByText("Remover");
+
+    fireEvent.click(removeButton);
+
+    expect(await screen.findByText("Deseja realmente remover?"));
+
+    const cancelButton = screen.getByText("NÃO");
+
+    fireEvent.click(cancelButton);
+
+    expect(
+      await waitForElementToBeRemoved(() =>
+        screen.queryByText("Deseja realmente remover?")
+      )
+    );
   });
 });
