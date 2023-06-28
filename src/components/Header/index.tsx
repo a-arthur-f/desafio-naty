@@ -5,6 +5,7 @@ import { useTheme } from "@mui/material/styles";
 import Link from "next/link";
 import { useContext } from "react";
 import { LoadingContext } from "@/loadingContext";
+import BackButton from "../BackButton";
 
 export default function Header() {
   const { loading } = useContext(LoadingContext);
@@ -24,6 +25,16 @@ export default function Header() {
       elevation={0}
     >
       <Grid container sx={gridContainerStyle} spacing={6} direction="row">
+        <Box
+          sx={{
+            position: "absolute",
+            left: theme.spacing(2),
+            top: "50%",
+            transform: "translateY(-50%)",
+          }}
+        >
+          <BackButton />
+        </Box>
         <Grid item>
           <Box width={{ xs: theme.spacing(7), md: theme.spacing(10) }}>
             <Link href="/">
