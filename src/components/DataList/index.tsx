@@ -1,4 +1,4 @@
-import { SxProps, useTheme } from "@mui/material";
+import { SxProps, Typography, useTheme } from "@mui/material";
 import { Box, Card, CardContent, List, ListItem } from "@mui/material";
 import Link from "next/link";
 import Info from "../Info";
@@ -27,17 +27,29 @@ export default function DataList({ items, icon, link }: DataListProps) {
     flexDirection: "column",
     gap: 2,
   };
+  console.log(items);
   return (
-    <List sx={listStyle}>
-      {items.map((item) => (
-        <DataItem
-          data={{ id: item.id, info1: item.info1, info2: item.info2 }}
-          link={link}
-          icon={icon}
-          key={item.id}
-        />
-      ))}
-    </List>
+    <>
+      {(items.length > 0 && (
+        <List sx={listStyle}>
+          {items.map((item) => (
+            <DataItem
+              data={{ id: item.id, info1: item.info1, info2: item.info2 }}
+              link={link}
+              icon={icon}
+              key={item.id}
+            />
+          ))}
+        </List>
+      )) || (
+        <Typography
+          paragraph
+          sx={{ typography: "h4", mt: 4, textAlign: "center" }}
+        >
+          Ops! Ainda não tem nada aqui.
+        </Typography>
+      )}
+    </>
   );
 }
 
