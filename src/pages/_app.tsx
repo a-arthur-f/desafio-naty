@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { ErrorContext } from "@/errorContext";
 import { LoadingContext } from "@/loadingContext";
 import "@/styles/globals.css";
 import { theme } from "@/styles/theme";
@@ -17,6 +18,11 @@ export default function App({ Component, pageProps }: AppProps) {
   const loadingContextValue = {
     loading,
     setLoading: (value: boolean) => setLoading(value),
+  };
+  const [error, setError] = useState("");
+  const errorContextValue = {
+    error,
+    setError: (value: string) => setError(value),
   };
 
   useEffect(() => {
@@ -37,15 +43,17 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router]);
 
   return (
-    <LoadingContext.Provider value={loadingContextValue}>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
-      </LocalizationProvider>
-    </LoadingContext.Provider>
+    <ErrorContext.Provider value={errorContextValue}>
+      <LoadingContext.Provider value={loadingContextValue}>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ThemeProvider>
+        </LocalizationProvider>
+      </LoadingContext.Provider>
+    </ErrorContext.Provider>
   );
 }
