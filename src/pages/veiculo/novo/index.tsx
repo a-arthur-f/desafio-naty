@@ -10,7 +10,7 @@ import config from "@/config";
 
 type DriverDataPost = Omit<VehicleData, "id">;
 
-export default function DriverNew() {
+export default function VehicleNew() {
   const router = useRouter();
   const { setLoading } = useContext(LoadingContext);
 
