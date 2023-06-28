@@ -77,10 +77,10 @@ export default function DisplacementNew({
         headers: [["Content-Type", "application/json"]],
         body: JSON.stringify(displacementData),
       });
-      router.push("/deslocamento");
+      router.back();
     } catch (e) {
       console.log(e);
-      router.push("/deslocamento");
+      router.back();
     } finally {
       setLoading(false);
     }

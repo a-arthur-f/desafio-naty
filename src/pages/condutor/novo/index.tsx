@@ -52,10 +52,10 @@ export default function DriverNew() {
         headers: [["Content-Type", "application/json"]],
         body: JSON.stringify(driverData),
       });
-      router.push("/condutor");
+      router.back();
     } catch (e) {
       console.log(e);
-      router.push("/condutor");
+      router.back();
     } finally {
       setLoading(false);
     }

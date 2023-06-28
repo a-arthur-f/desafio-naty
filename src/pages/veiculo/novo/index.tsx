@@ -34,10 +34,10 @@ export default function VehicleNew() {
         headers: [["Content-Type", "application/json"]],
         body: JSON.stringify(vehicleData),
       });
-      router.push("/veiculo");
+      router.back();
     } catch (e) {
       console.log(e);
-      router.push("/veiculo");
+      router.back();
     } finally {
       setLoading(false);
     }

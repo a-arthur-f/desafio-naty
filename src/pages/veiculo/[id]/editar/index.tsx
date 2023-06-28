@@ -37,10 +37,10 @@ export default function VehicleEdit({
         headers: [["Content-Type", "application/json"]],
         body: JSON.stringify(vehicleData),
       });
-      router.push(`/veiculo/${router.query.id}`);
+      router.back();
     } catch (e) {
       console.log(e);
-      router.push(`/veiculo/${router.query.id}`);
+      router.back();
     } finally {
       setLoading(false);
     }

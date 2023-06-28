@@ -76,10 +76,10 @@ export default function ClienteNew() {
         headers: [["Content-Type", "application/json"]],
         body: JSON.stringify(clientData),
       });
-      router.push("/cliente");
+      router.back();
     } catch (e) {
       console.log(e);
-      router.push("/cliente");
+      router.back();
     } finally {
       setLoading(false);
     }

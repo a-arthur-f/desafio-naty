@@ -54,10 +54,10 @@ export default function DriverEdit({
         headers: [["Content-Type", "application/json"]],
         body: JSON.stringify(driverData),
       });
-      router.push(`/condutor/${router.query.id}`);
+      router.back();
     } catch (e) {
       console.log(e);
-      router.push(`/condutor/${router.query.id}`);
+      router.back();
     } finally {
       setLoading(false);
     }
