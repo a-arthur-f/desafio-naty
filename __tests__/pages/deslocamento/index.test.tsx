@@ -1,6 +1,6 @@
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Driver from "../../src/pages/deslocamento";
+import Driver from "../../../src/pages/deslocamento";
 
 const data = [
   {
