@@ -1,10 +1,13 @@
-import { AppBar, Grid, SxProps, Box } from "@mui/material";
+import { AppBar, Grid, SxProps, Box, LinearProgress } from "@mui/material";
 import Image from "next/image";
 import logoImage from "../../../public/logo.png";
 import { useTheme } from "@mui/material/styles";
 import Link from "next/link";
+import { useContext } from "react";
+import { LoadingContext } from "@/loadingContext";
 
 export default function Header() {
+  const { loading } = useContext(LoadingContext);
   const theme = useTheme();
   const gridContainerStyle: SxProps = {
     justifyContent: "center",
@@ -35,6 +38,8 @@ export default function Header() {
           </Box>
         </Grid>
       </Grid>
+
+      {loading && <LinearProgress color="secondary" />}
     </AppBar>
   );
 }

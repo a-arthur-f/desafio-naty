@@ -7,19 +7,22 @@ import CategoryHeader from "@/components/CategoryHeader";
 import Icon from "@/components/Icon";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import RemoveDialog from "@/components/RemoveDialog";
+import { LoadingContext } from "@/loadingContext";
 
 export default function DriverDetails({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
+  const { setLoading } = useContext(LoadingContext);
   const [openRemoveDialog, setOpenRemoveDialog] = useState(false);
   const handleRemoveDialogClose = () => {
     setOpenRemoveDialog(false);
   };
   const handleRemoveDialogAction = async () => {
     try {
+      setLoading(true);
       await fetch(`${config.api}/Condutor/${router.query.id}`, {
         method: "DELETE",
         body: JSON.stringify({ id: Number(router.query.id) }),
@@ -29,6 +32,8 @@ export default function DriverDetails({
     } catch (e) {
       console.log(e);
       router.push("/condutor");
+    } finally {
+      setLoading(false);
     }
   };
   return (

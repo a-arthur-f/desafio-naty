@@ -7,28 +7,33 @@ import CategoryHeader from "@/components/CategoryHeader";
 import Icon from "@/components/Icon";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import RemoveDialog from "@/components/RemoveDialog";
+import { LoadingContext } from "@/loadingContext";
 
 export default function VehicleDetails({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
+  const { setLoading } = useContext(LoadingContext);
   const [openRemoveDialog, setOpenRemoveDialog] = useState(false);
   const handleRemoveDialogClose = () => {
     setOpenRemoveDialog(false);
   };
   const handleRemoveDialogAction = async () => {
     try {
+      setLoading(true);
       await fetch(`${config.api}/Veiculo/${router.query.id}`, {
         method: "DELETE",
         body: JSON.stringify({ id: Number(router.query.id) }),
         headers: [["Content-Type", "application/json"]],
       });
-      router.push("/condutor");
+      router.push("/veiculo");
     } catch (e) {
       console.log(e);
-      router.push("/condutor");
+      router.push("/veiculo");
+    } finally {
+      setLoading(false);
     }
   };
   return (
