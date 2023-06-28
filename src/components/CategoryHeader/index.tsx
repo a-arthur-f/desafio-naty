@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 interface CategoryHeaderProps {
   title: string;
   icon: React.ReactNode;
-  action: React.ReactNode[];
+  action?: React.ReactNode[];
 }
 
 export default function CategoryHeader({
@@ -48,9 +48,8 @@ export default function CategoryHeader({
         display="flex"
         gap={2}
       >
-        {action.map((element, index) => (
-          <li key={index}>{element}</li>
-        ))}
+        {action &&
+          action.map((element, index) => <li key={index}>{element}</li>)}
       </Box>
     </Box>
   );
