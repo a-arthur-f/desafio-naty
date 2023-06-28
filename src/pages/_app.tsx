@@ -5,6 +5,8 @@ import { theme } from "@/styles/theme";
 import { ThemeProvider } from "@emotion/react";
 import "@fontsource/roboto";
 import { CssBaseline } from "@mui/material";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -36,12 +38,14 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <LoadingContext.Provider value={loadingContextValue}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </LocalizationProvider>
     </LoadingContext.Provider>
   );
 }
