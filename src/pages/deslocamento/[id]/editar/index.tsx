@@ -10,8 +10,9 @@ import config from "@/config";
 import { DateField } from "@mui/x-date-pickers";
 import { Dayjs } from "dayjs";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import { ErrorContext } from "@/errorContext";
 
-type DisplacementDataPut = Omit<
+type DisplacementDataPut = { kmFinal: number; fimDeslocamento: string } & Omit<
   DisplacementData,
   | "kmInicial"
   | "inicioDeslocamento"
@@ -26,6 +27,7 @@ export default function DisplacementNew({
   displacement,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
+  const { setError } = useContext(ErrorContext);
   const { setLoading } = useContext(LoadingContext);
   const [expirationDateError, setExpirationDateError] = useState(true);
   const [displacementData, setDisplacementData] = useState<DisplacementDataPut>(
@@ -57,6 +59,18 @@ export default function DisplacementNew({
     try {
       e.preventDefault();
       if (expirationDateError) return;
+      if ((displacementData.kmFinal as number) < displacement.kmInicial) {
+        return setError("O Km Final não pode ser menor que o inicial");
+      }
+
+      if (
+        Date.parse(displacementData.fimDeslocamento) <
+        Date.parse(displacement.inicioDeslocamento)
+      ) {
+        return setError(
+          "O fim do deslocamento não pode ser menor que o inicio."
+        );
+      }
       setLoading(true);
       await fetch(
         `${config.api}/Deslocamento/${router.query.id}/EncerrarDeslocamento`,
@@ -66,10 +80,10 @@ export default function DisplacementNew({
           body: JSON.stringify(displacementData),
         }
       );
+
       router.back();
     } catch (e) {
-      console.log(e);
-      router.back();
+      setError("Houve uma falha!");
     } finally {
       setLoading(false);
     }
