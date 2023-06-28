@@ -27,7 +27,6 @@ export default function DataList({ items, icon, link }: DataListProps) {
     flexDirection: "column",
     gap: 2,
   };
-  console.log(items);
   return (
     <>
       {(items.length > 0 && (
