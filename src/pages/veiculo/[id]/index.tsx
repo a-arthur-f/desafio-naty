@@ -10,11 +10,13 @@ import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import RemoveDialog from "@/components/RemoveDialog";
 import { LoadingContext } from "@/loadingContext";
+import { ErrorContext } from "@/errorContext";
 
 export default function VehicleDetails({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
+  const { setError } = useContext(ErrorContext);
   const { setLoading } = useContext(LoadingContext);
   const [openRemoveDialog, setOpenRemoveDialog] = useState(false);
   const handleRemoveDialogClose = () => {
@@ -30,7 +32,7 @@ export default function VehicleDetails({
       });
       router.push("/veiculo");
     } catch (e) {
-      console.log(e);
+      setError("Houve uma falha!");
       router.push("/veiculo");
     } finally {
       setLoading(false);

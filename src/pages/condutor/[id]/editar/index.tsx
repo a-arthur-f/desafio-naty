@@ -10,6 +10,7 @@ import config from "@/config";
 import { DateField } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import { ErrorContext } from "@/errorContext";
 
 type DriverDataPut = { categoriaHabilitacao: string } & Omit<
   DriverData,
@@ -20,6 +21,7 @@ export default function DriverEdit({
   driver,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
+  const { setError } = useContext(ErrorContext);
   const { setLoading } = useContext(LoadingContext);
   const [expirationDateError, setExpirationDateError] = useState(true);
   const [driverData, setDriverData] = useState<DriverDataPut>({
@@ -56,7 +58,7 @@ export default function DriverEdit({
       });
       router.back();
     } catch (e) {
-      console.log(e);
+      setError("Houve uma folha!");
       router.back();
     } finally {
       setLoading(false);

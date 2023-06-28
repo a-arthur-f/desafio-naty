@@ -8,6 +8,7 @@ import { LoadingContext } from "@/loadingContext";
 import { useRouter } from "next/router";
 import config from "@/config";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import { ErrorContext } from "@/errorContext";
 
 type DriverDataPut = Omit<VehicleData, "placa">;
 
@@ -15,6 +16,7 @@ export default function VehicleEdit({
   vehicle,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
+  const { setError } = useContext(ErrorContext);
   const { setLoading } = useContext(LoadingContext);
 
   const [vehicleData, setDriverData] = useState<DriverDataPut>({
@@ -39,7 +41,7 @@ export default function VehicleEdit({
       });
       router.back();
     } catch (e) {
-      console.log(e);
+      setError("Houve uma falha!");
       router.back();
     } finally {
       setLoading(false);

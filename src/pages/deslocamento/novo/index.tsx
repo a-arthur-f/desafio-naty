@@ -24,6 +24,7 @@ import config from "@/config";
 import { DateField } from "@mui/x-date-pickers";
 import { Dayjs } from "dayjs";
 import { InferGetServerSidePropsType } from "next";
+import { ErrorContext } from "@/errorContext";
 
 type DisplacementDataPost = {
   idCliente: number | "";
@@ -37,6 +38,7 @@ export default function DisplacementNew({
   vehicle,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
+  const { setError } = useContext(ErrorContext);
   const { setLoading } = useContext(LoadingContext);
   const [expirationDateError, setExpirationDateError] = useState(true);
   const [displacementData, setDisplacementData] =
@@ -79,7 +81,7 @@ export default function DisplacementNew({
       });
       router.back();
     } catch (e) {
-      console.log(e);
+      setError("Houve uma falha!");
       router.back();
     } finally {
       setLoading(false);

@@ -16,6 +16,7 @@ import { ClientData } from "../../../types";
 import { LoadingContext } from "@/loadingContext";
 import { useRouter } from "next/router";
 import config from "@/config";
+import { ErrorContext } from "@/errorContext";
 
 const ufList = [
   "AC",
@@ -51,6 +52,7 @@ type ClientDataPost = Omit<ClientData, "id">;
 
 export default function ClienteNew() {
   const router = useRouter();
+  const { setError } = useContext(ErrorContext);
   const { setLoading } = useContext(LoadingContext);
   const [clientData, setClientData] = useState<ClientDataPost>({
     numeroDocumento: "",
@@ -78,7 +80,7 @@ export default function ClienteNew() {
       });
       router.back();
     } catch (e) {
-      console.log(e);
+      setError("Houve uma falha!");
       router.back();
     } finally {
       setLoading(false);

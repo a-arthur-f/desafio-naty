@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import config from "@/config";
 import { DateField } from "@mui/x-date-pickers";
 import { Dayjs } from "dayjs";
+import { ErrorContext } from "@/errorContext";
 
 type DriverDataPost = { categoriaHabilitacao: string } & Omit<
   DriverData,
@@ -17,6 +18,7 @@ type DriverDataPost = { categoriaHabilitacao: string } & Omit<
 
 export default function DriverNew() {
   const router = useRouter();
+  const { setError } = useContext(ErrorContext);
   const { setLoading } = useContext(LoadingContext);
   const [expirationDateError, setExpirationDateError] = useState(true);
   const [driverData, setDriverData] = useState<DriverDataPost>({
@@ -54,7 +56,7 @@ export default function DriverNew() {
       });
       router.back();
     } catch (e) {
-      console.log(e);
+      setError("Houve uma falha!");
       router.back();
     } finally {
       setLoading(false);

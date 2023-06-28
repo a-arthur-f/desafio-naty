@@ -7,11 +7,13 @@ import { VehicleData } from "../../../types";
 import { LoadingContext } from "@/loadingContext";
 import { useRouter } from "next/router";
 import config from "@/config";
+import { ErrorContext } from "@/errorContext";
 
 type DriverDataPost = Omit<VehicleData, "id">;
 
 export default function VehicleNew() {
   const router = useRouter();
+  const { setError } = useContext(ErrorContext);
   const { setLoading } = useContext(LoadingContext);
 
   const [vehicleData, setDriverData] = useState<DriverDataPost>({
@@ -36,7 +38,7 @@ export default function VehicleNew() {
       });
       router.back();
     } catch (e) {
-      console.log(e);
+      setError("Houve uma falha!");
       router.back();
     } finally {
       setLoading(false);
