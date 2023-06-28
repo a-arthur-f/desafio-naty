@@ -3,7 +3,7 @@ import Icon from "@/components/Icon";
 import { Box, Button, Grid, TextField } from "@mui/material";
 import Head from "next/head";
 import { useState, useContext } from "react";
-import { DriverData } from "../../../../../types";
+import { DriverData } from "../../../../types";
 import { LoadingContext } from "@/loadingContext";
 import { useRouter } from "next/router";
 import config from "@/config";

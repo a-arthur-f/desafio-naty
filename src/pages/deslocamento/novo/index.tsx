@@ -17,7 +17,7 @@ import {
   DisplacementData,
   DriverData,
   VehicleData,
-} from "../../../../types";
+} from "../../../types";
 import { LoadingContext } from "@/loadingContext";
 import { useRouter } from "next/router";
 import config from "@/config";

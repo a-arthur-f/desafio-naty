@@ -7,7 +7,7 @@ import {
   DisplacementData,
   DriverData,
   VehicleData,
-} from "../../../../types";
+} from "../../../types";
 import CategoryHeader from "@/components/CategoryHeader";
 import Icon from "@/components/Icon";
 import Link from "next/link";

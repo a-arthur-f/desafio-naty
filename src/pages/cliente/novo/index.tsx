@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import Head from "next/head";
 import { useState, useContext } from "react";
-import { ClientData } from "../../../../types";
+import { ClientData } from "../../../types";
 import { LoadingContext } from "@/loadingContext";
 import { useRouter } from "next/router";
 import config from "@/config";

@@ -5,7 +5,7 @@ import config from "@/config";
 import { Box, Button, SxProps } from "@mui/material";
 import { InferGetServerSidePropsType } from "next";
 import Head from "next/head";
-import { ClientData, DisplacementData, DriverData } from "../../../types";
+import { ClientData, DisplacementData, DriverData } from "../../types";
 import Link from "next/link";
 
 export default function Vehicle({

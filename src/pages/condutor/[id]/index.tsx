@@ -2,7 +2,7 @@ import Details from "@/components/Details";
 import config from "@/config";
 import { Box, Button } from "@mui/material";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
-import { DriverData } from "../../../../types";
+import { DriverData } from "../../../types";
 import CategoryHeader from "@/components/CategoryHeader";
 import Icon from "@/components/Icon";
 import Link from "next/link";
